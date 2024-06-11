@@ -1,0 +1,28 @@
+.clsEscenario{
+    width: 500px;
+    height: 500px;
+    background:red;
+    position: relative;
+    padding: 50px;
+    display: grid;
+    grid-template-rows: repeat(10, 50px);
+    grid-template-columns: repeat(10, 50px);
+}
+.clsJugar{
+    position: absolute;
+    left: 220px;
+    top: 400px;
+}
+.clsUnidad{
+    background:blue;
+}
+.clsVibora{
+    background:green;
+}
+.clsCabezaVibora{
+    background:rgb(2, 54, 2);    
+}
+
+.clsAzucar{
+    background:white;    
+}
