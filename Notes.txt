@@ -1,0 +1,10 @@
+La idea del projecto es crear un juego de "la viborita" usando html, css y javascript.
+al inicio se le presentara la pantalla con el boton "jugar".
+Cuando comiepnza la partida, el usuario comenzara con una viborita de 3 unidades en el medio de la pantalla y aparecera una unidad suelta en un lugar aleatorio de la pantalla.
+La viborita se movera 1 unidad cada 0.5 segundos.
+Se podra usar flechas y asdw para moverse.
+Si el jugador pasa por arriba de una unidad suelta, esta se agregara al final de la cola.
+Si la Cabeza de la viborita colisiona con alguna unidad de su cuerpo, es game over.
+
+Para la solución usaremos html, css y javascript.
+Para el escenario y los modelos no usaremos canvas, simplemente divs y demas elementos html.
