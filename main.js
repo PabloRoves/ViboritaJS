@@ -1,5 +1,4 @@
 document.getElementById("btnJugar").addEventListener("click", jugar);
-//document.addEventListener("keydown", muevoViborita);
 document.addEventListener("keydown", capturoDireccion);
 
 e = document.getElementById("escenario");
@@ -18,22 +17,26 @@ function iniciarPartida() {
   inicializarEscenario();
   inicializarViborita();
   enPartida = true;
-  tiempo();
+  gameLoop();
 }
 
-async function tiempo() {
-  let myPromise = new Promise(function (resolve) {
-    setTimeout(function () {
-      if (enPartida) {
-        resolve(tiempo());
-        muevoViborita();
-      }
-      //tiempo();
-    }, 250);
-  });
-  //  if (enPartida) await setTimout(tiempo, 3000);
+//Función con loop infinito hasta que termine la partida.
+//Se espera 250ms entre cada vuelta para verificar el estado de la partida,
+//actualizar la posición de la viborita y volver a dibujarla.
+async function gameLoop() {
+  let continuo = true;
+  while (enPartida) {
+    await pasaElTiempo(250);
+    continuo = muevoViborita();
+    if (!continuo) gameOver();
+  }
 }
 
+//En esta función implementamos promesas en conjunto con setTiemout para simular asincronía,
+//y tener una forma de "esperar que pase el tiempo".
+function pasaElTiempo(tiempo) {
+  return new Promise((resolve) => setTimeout(resolve, tiempo));
+}
 function inicializarEscenario() {
   escenario = Array(10)
     .fill()
@@ -66,6 +69,8 @@ function inicializarViborita() {
   direccion = "DE";
 }
 
+//Esta función se dispara cuando ocurre el evento keydown. Se encarga de registrar
+//la dirección hacia donde se movera la viborita y las nuevas coordenadas de la cabeza.
 function capturoDireccion(e) {
   if (!enPartida) return;
 
@@ -89,8 +94,11 @@ function asignoDireccion(d, coord) {
   if (vibora[1] != escenario[coord[0]][coord[1]]) direccion = d;
 }
 
+//Este método se encarga de actualizar las coordenadas de la viborita y
+//verificar si chocamos con el cuerpo o nos salimos del escenario, en cuyo caso
+//mostramos el mensaje de Game Over y detenemos la partida.
 function muevoViborita() {
-  if (!enPartida) return;
+  if (!enPartida) return false;
 
   let coordenadas;
   switch (direccion) {
@@ -111,12 +119,12 @@ function muevoViborita() {
   }
 
   if (saliDelEscenario(coordenadas) || choque(coordenadas)) {
-    gameOver();
-    return;
+    return false;
   }
 
   let nuevaCabeza = escenario[coordenadas[0]][coordenadas[1]];
   muevoCuerpo(nuevaCabeza);
+  return true;
 }
 
 function muevoDerecha() {
@@ -143,9 +151,37 @@ function muevoArriba() {
   let y = idCabeza.slice(1, 2);
   return [Number(y) - 1, Number(x)];
 }
+
+function gameOver() {
+  alert("Game Over");
+  enPartida = false;
+}
+
+function saliDelEscenario(coordenadas) {
+  if (coordenadas[0] < 0 || coordenadas[0] > 9 || coordenadas[1] < 0 || coordenadas[1] > 9) {
+    alert("Saliste del escenario");
+    return true;
+  } else return false;
+}
+
+function choque(coordenadas) {
+  if (escenario[coordenadas[0]][coordenadas[1]].classList.contains("clsVibora")) {
+    alert("Chocaste");
+    return true;
+  }
+  return false;
+}
+
+//Movemos la vibora de la siguiente forma:
+//Nos guardamos una referencia de la cola (ultima posición del array vibora[]) y de la cabeza (primera posición del array vibora[])
+//La nueva cabeza la recibimos por parametros.
+//En el array vibora[], movemos todas las referencias 1 posición hacía atras.
+//En la primer posición del array vibora[], asignamos la nueva cabeza.
+//Redibujamos la viborita en la pantalla, dependiendo de si se comio un terrón de azúcar o no.
+//En cazo que nos hayamos comido un terrón de azúcar, generamos uno nuevo.
 function muevoCuerpo(nuevaCabeza) {
   let exCola = vibora[vibora.length - 1];
-  let cuello = vibora[0];
+  let exCabeza = vibora[0];
 
   for (let i = vibora.length - 1; i >= 1; i--) {
     vibora[i] = vibora[i - 1];
@@ -155,8 +191,8 @@ function muevoCuerpo(nuevaCabeza) {
   nuevaCabeza.classList.remove("clsUnidad");
   nuevaCabeza.classList.add("clsCabezaVibora");
 
-  cuello.classList.remove("clsCabezaVibora");
-  cuello.classList.add("clsVibora");
+  exCabeza.classList.remove("clsCabezaVibora");
+  exCabeza.classList.add("clsVibora");
 
   if (comoAzucar(nuevaCabeza)) {
     nuevaCabeza.classList.remove("clsAzucar");
@@ -169,41 +205,15 @@ function muevoCuerpo(nuevaCabeza) {
   }
 }
 
+function comoAzucar(nuevaPosicion) {
+  if (nuevaPosicion.classList.contains("clsAzucar")) return true;
+  else return false;
+}
+
+//Generamos un nuevo terron de azúcar en un lugar al azar del escenario
 function generoAzucar() {
   let nodos = e.querySelectorAll(".clsUnidad");
   let x = Math.floor(Math.random() * nodos.length);
   nodos[x].classList.remove("clsUnidad");
   nodos[x].classList.add("clsAzucar");
-}
-
-function comoAzucar(nuevaCabeza) {
-  if (nuevaCabeza.classList.contains("clsAzucar")) return true;
-  else return false;
-}
-
-function saliDelEscenario(coordenadas) {
-  if (
-    coordenadas[0] < 0 ||
-    coordenadas[0] > 9 ||
-    coordenadas[1] < 0 ||
-    coordenadas[1] > 9
-  ) {
-    alert("Saliste del escenario");
-    return true;
-  } else return false;
-}
-
-function choque(coordenadas) {
-  if (
-    escenario[coordenadas[0]][coordenadas[1]].classList.contains("clsVibora")
-  ) {
-    alert("Chocaste");
-    return true;
-  }
-  return false;
-}
-
-function gameOver() {
-  alert("Game Over");
-  enPartida = false;
 }
