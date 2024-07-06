@@ -20,14 +20,14 @@ body {
   grid-template-rows: repeat(10, 1fr); /* Unidades relativas para filas */
   grid-template-columns: repeat(10, 1fr); /* Unidades relativas para columnas */
   background-color: #222; /* Color de fondo del escenario */
-  gap: 0px; /* Espacio entre celdas */
+  gap: 1px; /* Espacio entre celdas */
 }
 
 /* Estilos de las unidades del escenario */
 
 .clsUnidad {
   background-color: #444; /* Color de fondo de las unidades */
-  border: 0px solid #555; /* Borde para mejor definición */
+  border: 1px solid #555; /* Borde para mejor definición */
 }
 
 /* Estilos del azúcar */
@@ -40,17 +40,11 @@ body {
 
 .clsVibora {
   background-color: rgb(0, 64, 0); /* Verde oscuro para la serpiente */
-  border: 0px solid black; /* Borde negro */
+  border: 1px solid black; /* Borde negro */
 }
 
 .clsCabezaVibora {
   background-color: rgb(0, 128, 0); /* Verde intenso para la cabeza */
-  /*  background-color: rgb(0, 128, 0); /* Verde intenso para la cabeza */
-  position: relative; /* Posicionamiento relativo para animaciones */
-  /* ... estilos existentes */
-  /*background-image: url("snake-head.svg"); /* URL del archivo SVG */
-  background-size: contain; /* Ajustar el tamaño del SVG al contenedor */
-  background-repeat: no-repeat; /* Evitar que se repita el SVG */
   position: relative; /* Posicionamiento relativo para animaciones */
 }
 
@@ -118,8 +112,8 @@ body {
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  border: 0px solid black;
-  /*border-radius: 50%;*/
+  border: 3px solid black;
+  border-radius: 50%;
   transform-origin: center;
 }
 

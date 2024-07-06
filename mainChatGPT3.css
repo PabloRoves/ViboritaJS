@@ -1,0 +1,70 @@
+/* mainChatGPT.css */
+/* Le dije que no se veia la viborita y me armo esto */
+
+/* Estilo general del escenario */
+.clsEscenario {
+  width: 100%; /* El escenario ocupa el ancho completo del contenedor */
+  max-width: 500px; /* Ancho máximo del escenario */
+  height: 0;
+  padding-bottom: 100%; /* Mantenemos el aspect ratio 1:1 del escenario */
+  background-color: #d9d9d9; /* Color de fondo gris claro */
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr); /* 10 filas del mismo tamaño */
+  grid-template-columns: repeat(10, 1fr); /* 10 columnas del mismo tamaño */
+  gap: 1px; /* Espacio mínimo entre las celdas */
+}
+
+/* Botón de jugar */
+.clsJugar {
+  position: absolute;
+  left: 50%;
+  bottom: 10px; /* Colocamos el botón cerca del borde inferior */
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilo de las unidades (celdas del escenario) */
+.clsUnidad {
+  width: 100%; /* Cada unidad ocupa todo el espacio de su celda */
+  height: 100%;
+  background-color: #4a90e2; /* Azul */
+}
+
+/* Estilo de la vibora */
+.clsVibora {
+  width: 100%;
+  height: 100%;
+  background-color: #70c040; /* Verde más claro */
+}
+
+/* Estilo de la cabeza de la vibora */
+.clsCabezaVibora {
+  width: 100%;
+  height: 100%;
+  background-color: #024300; /* Verde oscuro */
+}
+
+/* Estilo del terrón de azúcar */
+.clsAzucar {
+  width: 100%;
+  height: 100%;
+  background-color: #ffd700; /* Amarillo */
+}
+
+/* Media query para dispositivos más pequeños */
+@media (max-width: 600px) {
+  .clsEscenario {
+    padding: 5px; /* Espacio interno reducido en dispositivos pequeños */
+  }
+
+  .clsJugar {
+    font-size: 14px; /* Reducimos el tamaño del texto del botón */
+    padding: 8px 16px; /* Ajustamos el padding del botón */
+  }
+}

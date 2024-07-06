@@ -1,0 +1,48 @@
+/* mainChatGPT.css */
+
+/* Estilo general del escenario */
+.clsEscenario {
+  width: 500px;
+  height: 500px;
+  background-color: #d9d9d9; /* Color de fondo gris claro */
+  position: relative;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr); /* 10 filas del mismo tamaño */
+  grid-template-columns: repeat(10, 1fr); /* 10 columnas del mismo tamaño */
+  gap: 1px; /* Espacio mínimo entre las celdas */
+}
+
+/* Botón de jugar */
+.clsJugar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilo de las unidades (celdas del escenario) */
+.clsUnidad {
+  background-color: #4a90e2; /* Azul */
+}
+
+/* Estilo de la vibora */
+.clsVibora {
+  background-color: #70c040; /* Verde más claro */
+}
+
+/* Estilo de la cabeza de la vibora */
+.clsCabezaVibora {
+  background-color: #024300; /* Verde oscuro */
+}
+
+/* Estilo del terrón de azúcar */
+.clsAzucar {
+  background-color: #ffd700; /* Amarillo */
+}
