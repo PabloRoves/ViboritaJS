@@ -1,61 +1,54 @@
-# La viboritaJS: Un juego clásico en JavaScript
+# snake-js: A Classic Game in JavaScript
 
-## Introducción
+## Introduction
 
-La viboritaJS es una implementación del clásico juego de la serpiente en JavaScript. El juego se desarrolla en un escenario rectangular, donde la serpiente se mueve y crece al comer azúcar. El jugador controla la dirección de la serpiente con las teclas de flecha del teclado. El objetivo del juego es obtener la mayor puntuación posible sin que la serpiente se choque contra sí misma o las paredes del escenario.
+snake-js is an implementation of the classic snake game in JavaScript. The game is set in a rectangular arena where the snake moves and grows by eating sugar. Players control the snake's direction using arrow keys. The objective is to score as high as possible without the snake colliding with itself or the arena walls.
 
-## Características
+## Features
 
-Implementación básica del juego de la serpiente.
-Control de la serpiente con las teclas de flecha.
-Generación aleatoria de azúcar en el escenario.
-Detección de colisiones con las paredes y el cuerpo de la serpiente.
-Puntaje acumulativo. (pendiente)
-Código limpio y documentado.
+- Basic implementation of the snake game.
+- Snake control using arrow keys.
+- Random generation of sugar on the arena.
+- Collision detection with walls and the snake's own body.
+- Clean and documented code.
 
-## Dependencias
+## Dependencies
 
-Un navegador web compatible con JavaScript.
+None, just a web browser compatible with JavaScript.
 
-## Instalación
+## Installation
 
-Descarga los archivos HTML, CSS y JavaScript del proyecto.
-Coloca los archivos en el mismo directorio.
-Abre el archivo HTML en un navegador web.
-Cómo jugar:
+1. Download the HTML, CSS, and JavaScript files of the project.
+2. Place the files in the same directory.
+3. Open the HTML file in a web browser.
 
-Presiona el botón "Jugar" para iniciar el juego.
-Utiliza las teclas de flecha para controlar la dirección de la serpiente.
-Come azúcar para hacer crecer la serpiente.
-Evita que la serpiente se choque contra las paredes o su propio cuerpo.
-¡Obtén la mayor puntuación posible!
+## How to Play
 
-## Teclas
+- Click the "Play" button to start the game.
+- Use arrow keys to control the snake's direction.
+- Eat sugar to make the snake grow.
+- Avoid collisions with walls or the snake's own body.
+- Aim for the highest score possible!
 
-- **Arriba:** Mueve la serpiente hacia arriba.
-- **Abajo:** Mueve la serpiente hacia abajo.
-- **Izquierda:** Mueve la serpiente hacia la izquierda.
-- **Derecha:** Mueve la serpiente hacia la derecha.
+## Controls
 
-## Desarrollo
+- **Up:** Move the snake upwards.
+- **Down:** Move the snake downwards.
+- **Left:** Move the snake leftwards.
+- **Right:** Move the snake rightwards.
 
-Este proyecto está en desarrollo y se pueden agregar nuevas características en el futuro, como:
+## Development
 
-Diferentes niveles de dificultad.  
-Sonidos y efectos visuales.  
-Modos de juego multijugador.  
-Más tipos de comida y obstáculos.
+This project is under development, and future features may include:
 
-## Contribución
+- Different difficulty levels.
+- Sound effects and visual enhancements.
+- Multiplayer modes.
+- Additional types of food and obstacles.
+- Scoreboard.
 
-Si te interesa contribuir al proyecto, puedes hacerlo de las siguientes maneras:
+## License
 
-- Reportando errores o problemas.
-- Sugiriendo nuevas características.
-- Enviando código para mejorar el juego.
+This project is licensed under the MIT License.
 
-## Licencia
-
-Este proyecto se distribuye bajo la licencia MIT.
-
-## ¡Diviértete jugando a La viboritaJS!
+## Enjoy playing snake-js!
