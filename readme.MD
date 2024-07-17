@@ -1,22 +1,8 @@
 # snake-js: A Classic Game in JavaScript
 
-## Introduction
-
 snake-js is an implementation of the classic snake game in JavaScript. The game is set in a rectangular arena where the snake moves and grows by eating sugar. Players control the snake's direction using arrow keys. The objective is to score as high as possible without the snake colliding with itself or the arena walls.
 
-## Features
-
-- Basic implementation of the snake game.
-- Snake control using arrow keys.
-- Random generation of sugar on the arena.
-- Collision detection with walls and the snake's own body.
-- Clean and documented code.
-
-## Dependencies
-
-None, just a web browser compatible with JavaScript.
-
-## Installation
+## Installation and Setup
 
 1. Download the HTML, CSS, and JavaScript files of the project.
 2. Place the files in the same directory.
@@ -30,12 +16,13 @@ None, just a web browser compatible with JavaScript.
 - Avoid collisions with walls or the snake's own body.
 - Aim for the highest score possible!
 
-## Controls
+## Features
 
-- **Up:** Move the snake upwards.
-- **Down:** Move the snake downwards.
-- **Left:** Move the snake leftwards.
-- **Right:** Move the snake rightwards.
+- Basic implementation of the snake game.
+- Snake control using arrow keys.
+- Random generation of sugar on the arena.
+- Collision detection with walls and the snake's own body.
+- Clean and documented code.
 
 ## Development
 
